@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+             background-color: black;
+         }
+         .input{
+               text-align: center;
+               height: 30px;
+               width:40%;
+               border : 2px white solid;
+               background-color: white;
+               margin-left: 30%;
+               margin-top: 30px;
+               border-radius: 20px;
+         }
+         h1{
+            color: rgb(223, 223, 6);
+            text-align: center;
+            margin-top: 180px;
+         }
+    </style>
+</head>
+<body> 
+         <h1>Welcome To World of Java Script</h1>      
+        <input type="text" class="input">
+        <button id = "btn">Click me </button>
+
+     <script>
+          let specific = document.querySelector(".input");
+          let button = document.querySelector("#btn");
+          
+         
+           specific.addEventListener("input",function(){
+                let val = specific.value;
+                console.log(val);
+           })
+
+           button.addEventListener("click",function(){
+               let p = document.createElement('p');
+               p.innerText= specific.value;
+               p.style.color="red";
+               p.style.textAlign = "center";
+            //    specific.insertAdjacentElement("afterend", p);
+              document.body.appendChild(p);
+
+              p.addEventListener("click", function() {
+                  specific.value = p.nextSibling.innerText;
+                  p.remove();
+                
+              });
+
+           })
+          
+     </script>
+</body>
+</html>
