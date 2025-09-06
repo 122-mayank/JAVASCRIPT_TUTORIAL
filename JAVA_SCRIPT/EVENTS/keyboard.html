@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+  <style>
+       body{
+              height: 100vh;
+              display: flex;
+              justify-content: center;
+              margin-top: 10rem;
+              background-color: black;
+
+       }
+       .keyPressed,.keyCode ,.eventType,.charCode{
+          color: #f5ee62;
+          padding-left: 20px;
+          padding-top: 12px;
+       }
+       input{
+         height:30px;
+         border-radius: 15px;
+         text-align: center;
+         width:300px;
+       }
+       .output{
+        margin-top: 20px;
+     height:190px;
+     background-color: rgb(83, 80, 80);
+     width:300px;
+     border-radius: 10px;
+     box-shadow: -5px 0px rgb(236, 232, 232);
+     /* border: 2px white solid; */
+     
+     
+       }
+  </style>
+<body>
+       
+         <div>
+                <input type="text" id="myInput" placeholder="Type something..."/>
+                <div class="output">
+                       <p class="keyPressed">Key Pressed:</p>
+                       <p class="keyCode">Key code:</p>
+                       <p class="charCode">Char codeAt: </p>
+                       <p class="eventType">Event Type:</p>
+                </div>  
+
+         </div>
+  <script> 
+    let str = ""; // ✅ moved outside, keeps track of typed keys
+
+    const handleKeyPress = (event) => {
+      console.log("Key Pressed:", event.key);
+      console.log("Key code:", event.code);
+      console.log("Event type:", event.type);
+
+     if (event.key === "Backspace") {
+        str = str.slice(0, -1); // remove last character
+      } else if (event.key.length === 1) {  
+        // only add if it's a printable character
+        str += event.key;
+      }
+
+      document.querySelector(".keyPressed").textContent = `Key Pressed: ${str}`;
+      document.querySelector(".keyCode").textContent = `Key code: ${event.code}`;
+      document.querySelector(".charCode").textContent = `Char codeAt: ${event.key.length === 1 ? event.key.charCodeAt(0) : "N/A"}`;
+      document.querySelector(".eventType").textContent = `Event Type: ${event.type}`;
+    }
+
+    var myInput = document.getElementById("myInput");
+    myInput.addEventListener("keydown", handleKeyPress);
+  </script>
+</body>
+</html>
