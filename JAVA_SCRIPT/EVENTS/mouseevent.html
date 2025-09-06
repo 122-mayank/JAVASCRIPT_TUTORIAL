@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Transition Box</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .rectangle {
+            height: 200px;
+            width: 200px;
+            background-color: black;
+            box-shadow: 0 0 10px 5px rgb(238, 241, 6);
+            margin-bottom: 20px;
+            border: 2px white solid;
+            transition: all 0.6s ease-in-out;  /* ✅ smooth animation */
+        }
+
+        #myButton {
+            line-height: 1;
+            height: 30px;
+            width: 100px;
+            border-radius: 20px;
+            background-color: yellow;
+            cursor: pointer;
+            margin-left: 40px;
+        }
+
+        .addTransition {
+            border-radius: 50%;
+        }
+
+        .addTransition3 {
+            border-radius: 50%;
+            background-color: #f5ee62;
+            transform: translate(-30rem, 0);
+        }
+
+        .addTransition4 {
+            border-radius: 50%;
+            background-color: #f5ee62;
+            transform: translate(30rem, 0);
+        }
+
+        .addTransition5 {
+            border-radius: 50%;
+            background-color: #f5ee62;
+            transform: translate(-30rem, 0);
+        }
+
+        .addTransition6 {
+            border-radius: 0%;
+            background-color: #f5ee62;
+            transform: translate(0, 0);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="rectangle"></div>
+        <button id="myButton">Click me</button>
+    </section>
+
+    <script>
+        let myButton = document.getElementById("myButton");
+        let rectDiv = document.querySelector(".rectangle");
+
+        const handleMouseEvents2 = () => {
+            rectDiv.classList.add("addTransition");
+        };
+        const handleMouseEvents3 = () => {
+            rectDiv.classList.add("addTransition3");
+        };
+        const handleMouseEvents4 = () => {
+            rectDiv.classList.add("addTransition4");
+        };
+        const handleMouseEvents5 = () => {
+            rectDiv.classList.add("addTransition5");
+        };
+        const handleMouseEvents6 = () => {
+            rectDiv.classList.add("addTransition6");
+        };
+
+        myButton.addEventListener("dblclick", handleMouseEvents2);
+        rectDiv.addEventListener("mouseover", handleMouseEvents3);
+        rectDiv.addEventListener("mouseout", handleMouseEvents4);
+        rectDiv.addEventListener("mousedown", handleMouseEvents5);
+        rectDiv.addEventListener("mouseup", handleMouseEvents6);
+    </script>
+</body>
+</html>

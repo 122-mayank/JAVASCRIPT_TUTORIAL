@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>       
+<style> 
+    h1{
+         margin-bottom: 2.4rem;
+    }
+</style>
+<body>
+    <h1>Inline Event</h1>
+    <button onclick="alert('welcome')">greeting</button>
+    <button ondblclick="alert('welcome')">greeting agin</button>
+    <button onmouseover="alert('welcome')">greeting</button>
+
+
+    <h1>Dom Event Handler</h1>
+    <button id="myBtn">greeting</button>
+    <button id="myBtn1">greeting again</button>
+
+
+
+    <h1>Add Event Listener</h1>
+    <button id="myBtn2">greeting</button>
+    <button id="myBtn3">greeting again</button>
+
+
+
+</body>
+ <script> 
+      document.getElementById("myBtn").onclick= function (){
+         alert("To the world best ");
+      };
+      
+      //add  event Listener 
+      document.getElementById('myBtn2').addEventListener("click",()=>{
+         
+           alert("To the world best");
+      });
+
+      document.getElementById("myBtn3").addEventListener("mouseover",()=>{
+           alert("Javascript Course");
+      })
+
+ </script>
+</html>
