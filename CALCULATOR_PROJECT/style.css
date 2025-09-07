@@ -1,0 +1,127 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background: #DA4453;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.main_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    margin-top: 30px;
+    height: 600px;
+    width: 350px;
+    border: 2px #76C8E8 solid;
+    background-color: #76C8E8;
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px  #066f99;
+    background-image:linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+}
+input{
+    height: 50px;
+    width: 75%;
+    border-radius: 20px;
+    margin: 40px;
+    text-align: center;
+    font-size: 1em;
+    font-weight:bold;
+    outline: none;
+    border: 4px #033745 solid;
+    box-shadow: 7px 7px 7px ;
+}
+.inputbox_container{
+     margin-top: 30px;
+    height: 50px;
+}
+input::placeholder{
+    color: black;
+}
+img{
+    position: relative;
+    top: 50px;
+    left: 40px;
+}
+.number_container{
+ margin-top: 80px;
+margin-left: 40px;
+display:grid;
+grid-template-columns: repeat(4 , 1fr);
+grid-template-rows: repeat(5 ,1fr);
+gap: 10px;
+column-gap: 0px;
+
+}
+.same_circle{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    height: 40px;
+    width:40px;
+    border: 4px #060657 solid;
+    text-align: center;
+    border-radius: 50%;
+    padding: 20px;
+    font-weight: bold;
+    
+}
+#modify{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: 40px;
+    width:120px;
+    border-radius: 20px;
+}
+.text{
+    padding: 10px;
+}
+@keyframes pulse {
+    0%   { transform: scale(1);   color: white; }
+    50%  { transform: scale(1.1); color: #ffea00; }  /* light yellow */
+    100% { transform: scale(1);   color: white; }
+  }
+
+  h1{
+    position: relative;
+    left:40px;
+    bottom: 10px;
+  }
+ .operator_container{
+       font-size: 100px;
+ }
+ 
+  .symbol {
+    position: absolute;
+    bottom: -100px;
+    color:  rgba(241, 5, 76, 0.904);
+    font-weight: bold;
+    pointer-events: none;
+    animation: floatUp 6s linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120vh) scale(1.2);
+      opacity: 0;
+    }
+   
+  }
+  

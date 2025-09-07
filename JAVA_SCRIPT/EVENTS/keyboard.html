@@ -50,7 +50,7 @@
 
          </div>
   <script> 
-    let str = ""; // ✅ moved outside, keeps track of typed keys
+    let str = ""; 
 
     const handleKeyPress = (event) => {
       console.log("Key Pressed:", event.key);
@@ -58,9 +58,9 @@
       console.log("Event type:", event.type);
 
      if (event.key === "Backspace") {
-        str = str.slice(0, -1); // remove last character
+        str = str.slice(0, -1); 
       } else if (event.key.length === 1) {  
-        // only add if it's a printable character
+       
         str += event.key;
       }
 

@@ -1,0 +1,1 @@
+let arr =["love" , 1 , 'radha'];

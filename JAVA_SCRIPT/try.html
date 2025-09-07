@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+ <button onclick="OpenWindow()">Open New window</button>
+  <h1 id="heading">Radha Krishna</h1>
+  <h1 id="codehelp">Welcome to CodeHelp</h1>
+
+  <h2 class="code1">Welcome to CodeHelp</h2>
+  <h2 class="code1">Welcome to CodeHelp1</h2>
+  <h2 class="code1">Welcome to CodeHelp2</h2>
+  <h2 class="code2">Welcome to CodeHelp3</h2>
+  <h2 class="code2">Welcome to CodeHelp4</h2>
+  <h2 class="code2">Welcome to CodeHelp5</h2>
+
+
+  <p>Welcome to CodeHelp1</p>
+  <p>Welcome to CodeHelp2</p>
+  <p>Welcome to CodeHelp3</p>
+  <p>Welcome to CodeHelp4</p>
+  <p>Welcome to CodeHelp5</p>
+
+
+  <p id="mypara">This is New Para</p>
+
+  <h3>Welcome to CodeHelp</h3>
+  
+
+    <script>
+          function OpenWindow(){
+            window.open('https://www.codehelp.in/tutorials', '_blank');
+
+          }
+          let ele = document.getElementById("heading");
+          ele.style.backgroundColor = "red";
+
+
+          let element = document.getElementsByClassName('code1');
+    element[0].style.backgroundColor = "red";
+
+//Let's Select the elements with class name "code2"
+    let element2 = document.getElementsByClassName("code2");
+    element2[0].style.backgroundColor = "yellow";
+
+
+    let element1 = document.getElementsByTagName("p");
+    console.log(element1); // Returns an array
+
+    element1[1].style.backgroundColor = "lightgreen";
+    element1[3].style.backgroundColor = "yellow"
+
+
+   let value = document.getElementById("mypara");
+
+   let newPara = "Hello Dosto";
+   value.innerHTML = newPara;
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+html, body {
+  /* height: 100%;       */
+}
+
+body {
+  background-image: linear-gradient(to top right,  
+                     rgb(20, 114, 177), 
+                     rgb(164, 221, 58));
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;       
+}
+
+            #btn1 , #btn2{
+                  height: 40px;
+                  width:120px;
+                  border-radius: 20px;
+                  border: none;
+                  color: rgb(243, 242, 242);
+                  margin-left: 50px;
+                  margin-top: 170px;
+            }
+            #btn1{
+                 background-color: #200861a8;
+            }
+            #btn2{
+                   background-color:#83c20f;
+            }
+            .container{
+                  height : 400px;
+                  width : 400px;
+                  /* border: 2px black solid; */
+                  margin: 120px auto;
+                  gap:20px;
+            }
+            .container p{
+                 color: white;
+                 font-size: 1.2rem;
+                 margin-left: 110px;
+                 margin-top: 20px;
+
+            }
+            .bg p{
+                 color: white;
+                 font-size: 1.2rem;
+                 margin-left: 30px;
+                 padding-top: 10px;
+            }
+            .bg{
+                 background: rgba(255, 255, 255, 0.1); /* white with transparency */
+                 backdrop-filter: blur(10px); /* blur the background behind */
+                -webkit-backdrop-filter: blur(10px); /* Safari support */
+                 box-shadow: -3px 0px white;
+                 height:90px;
+                 width: 350px;
+                 margin-left: 20px;
+                 /* margin-top: 10px; */
+
+            }
+     </style>
+</head>
+<body>
+
+          <div class="container">
+                <button id="btn1">#AA1ABD</button>
+                <button id ="btn2">#A0CC4D</button>
+                
+                <p> Copy your Code here</p>
+                 <div class="bg">
+                     <p>  background-image : linear - gradient(to top right ,   
+                     rgb(20, 114, 177) , 
+                     rgb(164, 221, 58)) 
+                     </p>
+                 </div>
+
+        </div>
+
+        <script>
+                let btn1 = document.querySelector('#btn1');
+                let btn2 = document.querySelector('#btn2');
+
+                let rgb1 = "#200861a8";
+                let rgb2 = "#83c20f";
+
+                let generatevalues = "0123456789abcdef";
+
+                const value1  = function handlecolor1() {
+                     let str ="#";
+                    for(let i = 1 ; i <= 6 ; i++ ){
+                       str += generatevalues[Math.floor(Math.random()*16)];
+                }
+                    rgb1 = str;
+                     document.body.style.backgroundImage=`linear-gradient(to top right , ${str} , ${rgb2})`;
+                     document.querySelector('.bg p ').innerHTML = `background-image : linear-gradient(to top right ,   
+                     ${str} , 
+                     ${rgb2});`;
+
+                }
+
+                 const value2  = function handlecolor2() {
+                     let str ="#";
+                    for(let i = 1 ; i <= 6 ; i++ ){
+                       str += generatevalues[Math.floor(Math.random()*16)];
+                }
+                   rgb2 = str;
+                      document.body.style.backgroundImage=`linear-gradient(to top right , ${rgb1} , ${str})`;
+
+                      document.querySelector('.bg p ').innerHTML = `background-image : linear-gradient(to top right ,   
+                     ${rgb1} , 
+                     ${str});`;
+
+                }
+
+                 const para = document.querySelector('.bg p');
+
+                 para.addEventListener('mouseover', () => {
+                 const text = para.innerText; // or para.textContent
+
+                 navigator.clipboard.writeText(text)
+                 .then(() => {
+                      alert("Copied to the text!!");
+                      })
+                  .catch(err => {
+                   console.error('Failed to copy: ', err);
+                  });
+               });
+
+
+                btn1.addEventListener("click",value1);
+                btn2.addEventListener("click",value2);
+
+                
+
+
+        </script>
+      
+</body>
+</html>

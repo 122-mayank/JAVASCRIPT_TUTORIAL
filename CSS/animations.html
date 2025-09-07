@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            background-color: beige;
+            border: 5px solid black;
+        }
+        .box{
+            width: 350px;
+            height: 80px;
+            background-color: blue;
+            border: 3px solid yellow;
+            border-radius: 10px;
+            margin: 10px;
+            padding:10px;
+            position:relative;
+          /*  animation-name: rightmovement; 
+            animation-duration: 5s;
+            animation-iteration-count: 1;
+            animation-delay: 1s;
+            animation-timing-function: linear;
+            /*animation-direction: alternate-reverse;
+            animation-fill-mode:forwards;*/
+            animation: 5s linear 1s infinite alternate none running rightmovement;
+
+        }
+        @keyframes rightmovement{
+            from{
+                top:0;
+                left:0;
+            }
+            to{
+               top:0;
+               left:980px;
+            }
+        }
+
+
+        #box2{
+            width: 350px;
+            height: 80px;
+            background-color: blue;
+            border: 3px solid yellow;
+            border-radius: 10px;
+            margin: 10px;
+            padding:10px;
+            position:relative;
+            animation: 5s ease-in 1s infinite alternate none running leftmovement;
+        }
+        @keyframes leftmovement{
+            from{
+                top:450px;
+                left:980px;
+            }
+            to{
+               top:450px;
+               left:0px;
+            }
+        }
+
+
+
+        #circle{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            border: 3px solid yellow;
+            border-radius: 50%;
+            margin: 10px;
+            padding:10px;
+            position:relative;
+            top:0%;
+            left:40%;
+            animation: 10s ease-in-out 0s infinite alternate-reverse none running circlemovement;
+        }
+        @keyframes circlemovement{
+            0%{
+               top:1%;
+               left:5%;
+            }
+            30%{
+                top:5%;
+                left:90%;
+            }
+            60%{
+                top:40%;
+                left:10%;
+            }
+            100%{
+                top:40%;
+                left:90%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+     <div class="container">
+             <div class="box">
+
+             </div>
+             <div id="box2">
+
+             </div>
+             <div id="circle">
+
+             </div>
+     </div>
+</body>
+</html>
