@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive To-Do</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px 10px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .input-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .box {
+      flex: 1;
+      height: 40px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      padding-left: 15px;
+      font-size: 1rem;
+      min-width: 200px;
+    }
+
+    #btn {
+      height: 40px;
+      padding: 0 20px;
+      border-radius: 20px;
+      background-color: rgb(228, 228, 20);
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    #btn:hover {
+      background-color: black;
+      color: white;
+      border: 2px solid yellow;
+    }
+
+    .items-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #222;
+      padding: 10px 15px;
+      border-radius: 12px;
+    }
+
+    .todo-item span {
+      font-size: 1rem;
+    }
+
+    .todo-item .deletebtn {
+      background: yellow;
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .todo-item .deletebtn:hover {
+      background: orange;
+    }
+
+    /* 📱 Mobile optimization */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      .input-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      #btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>To Do List</h1>
+
+  <div class="input-container">
+    <input type="text" class="box" placeholder="Add something...">
+    <button id="btn">Add To Do</button>
+  </div>
+
+  <section class="items-container">
+    
+  </section>
+   
+  <script>
+           const btn = document.getElementById("btn");
+           const inputtext = document.querySelector('.box');
+           const sec_item = document.querySelector('.items-container');
+
+           const getDoListFromLocal =()=>{
+               return JSON.parse(localStorage.getItem('ObjectData'));
+           }
+
+           let storage = getDoListFromLocal() || [];
+
+          const  addToDoEle= (element)=>{
+              const div = document.createElement("div");
+                   div.classList.add('todo-item');
+                   div.innerHTML=`<span>${element}</span>
+                                   <button class="deletebtn">Delete</button>`                 
+                   sec_item.appendChild(div);     
+                 
+          }
+
+           const addToDo = (e)=>{
+                e.preventDefault();
+                 let value = inputtext.value.trim();
+                  inputtext.value=''; 
+
+                 if(!storage.includes(value) && value != ''){
+                  storage.push(value);
+                  storage = [... new Set(storage)];
+                   console.log(storage);
+                   localStorage.setItem("ObjectData" ,JSON.stringify(storage));
+                 
+                   const div = document.createElement("div");
+                   div.classList.add('todo-item');
+                   div.innerHTML=`<span>${value}</span>
+                                   <button class="deletebtn">Delete</button>`                 
+                   sec_item.appendChild(div);     
+    
+                 
+                 }
+           }
+
+           const showToDoList = ()=>{
+                 console.log(storage);
+                 
+                 storage.forEach(element => {
+                    addToDoEle(element);
+                 });
+           }  
+
+           showToDoList();
+
+
+           const removeToDoelement= (e)=>{
+               
+               let todoRemove = e.target;
+               let content = todoRemove.previousElementSibling.textContent;
+               let parentElem = todoRemove.parentElement;
+                 
+                storage=storage.filter((curr)=>{
+                        return curr != content;
+               });
+                localStorage.setItem("ObjectData",JSON.stringify(storage));
+                parentElem.remove();
+           }
+
+
+           sec_item.addEventListener("click",(e)=>{
+                e.preventDefault();
+                if(e.target.classList.contains("deletebtn")){
+                removeToDoelement(e);
+                }
+                
+           });
+            btn.addEventListener("click" , (e)=>{
+            
+                addToDo(e);
+           });
+
+  </script>
+   
+</body>
+</html>
